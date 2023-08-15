@@ -8,22 +8,18 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Methods {
 
     public static int getRandomInt(int min, int max) {
-
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
     public static String getRandomFirstName(Faker fakerEn) {
-
         return fakerEn.name().firstName();
     }
 
     public static String getRandomLastName(Faker fakerEn) {
-
         return fakerEn.name().lastName();
     }
 
     public static String getRandomUserEmail(Faker fakerEn) {
-
         return fakerEn.internet().emailAddress();
     }
 
@@ -34,7 +30,6 @@ public class Methods {
     }
 
     public static String getRandomUserNumber(Faker fakerEn) {
-
         return fakerEn.numerify("##########");
     }
 
@@ -79,7 +74,6 @@ public class Methods {
     }
 
     public static String getRandomCurrentAddress(Faker fakerEn) {
-
         return fakerEn.address().fullAddress();
     }
 
