@@ -1,12 +1,13 @@
 package com.demoqa.tests;
 
 import com.demoqa.pages.RegistrationPage;
-import com.demoqa.utils.TestDataProperties;
+import com.demoqa.test.data.Properties;
 import org.junit.jupiter.api.Test;
 
 public class RegistrationFormTestsWithFaker extends TestBase {
+
     RegistrationPage registrationPage = new RegistrationPage();
-    TestDataProperties testData = new TestDataProperties();
+    Properties testData = new Properties();
 
     @Test
     void registrationFormTest() {
@@ -31,7 +32,10 @@ public class RegistrationFormTestsWithFaker extends TestBase {
                 .checkTableResult("Student Email", testData.userEmailValue)
                 .checkTableResult("Gender", testData.genderWrapperValue)
                 .checkTableResult("Mobile", testData.userNumberValue)
-                .checkTableResult("Date of Birth", testData.birthDayValue + " " + testData.birthMonthValue + "," + testData.birthYearValue)
+                .checkTableResult(
+                        "Date of Birth",
+                        testData.birthDayValue + " " + testData.birthMonthValue + "," + testData.birthYearValue
+                )
                 .checkTableResult("Subjects", testData.subjectsInputValue)
                 .checkTableResult("Hobbies", testData.hobbiesWrapperValue)
                 .checkTableResult("Picture", testData.uploadPictureValue)

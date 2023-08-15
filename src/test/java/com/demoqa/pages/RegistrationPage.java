@@ -12,23 +12,23 @@ public class RegistrationPage {
 
     CalendarComponent calendar = new CalendarComponent();
 
-    SelenideElement
-            firstName = $("#firstName"),
-            lastName = $("#lastName"),
-            userEmail = $("#userEmail"),
-            genderWrapper = $("#genterWrapper"),
-            userNumber = $("#userNumber"),
-            birthDate = $("#dateOfBirthInput"),
+    private final SelenideElement
+            firstNameInput = $("#firstName"),
+            lastNameInput = $("#lastName"),
+            userEmailInput = $("#userEmail"),
+            genderInput = $("#genterWrapper"),
+            userNumberInput = $("#userNumber"),
+            birthDateInput = $("#dateOfBirthInput"),
             subjectsInput = $("#subjectsInput"),
-            hobbiesWrapper = $("#hobbiesWrapper"),
-            uploadPicture = $("#uploadPicture"),
-            currentAddress = $("#currentAddress"),
-            state = $("#state"),
-            city = $("#city"),
-            stateCity = $("#stateCity-wrapper"),
-            submit = $("#submit"),
+            hobbiesInput = $("#hobbiesWrapper"),
+            uploadPictureInput = $("#uploadPicture"),
+            currentAddressInput = $("#currentAddress"),
+            stateInput = $("#state"),
+            cityInput = $("#city"),
+            stateCityInput = $("#stateCity-wrapper"),
+            submitButton = $("#submit"),
             modalTable = $(".modal-content"),
-            table = $(".table-responsive");
+            tableField = $(".table-responsive");
 
 
     public RegistrationPage openPage() {
@@ -38,45 +38,43 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage closeBanner() {
+    public void closeBanner() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-
-        return this;
     }
 
     public RegistrationPage setFirstName(String value) {
-        firstName.setValue(value);
+        firstNameInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setLastName(String value) {
-        lastName.setValue(value);
+        lastNameInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setUserEmail(String value) {
-        userEmail.setValue(value);
+        userEmailInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setGender(String value) {
-        genderWrapper.$(byText(value)).click();
+        genderInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setNumber(String value) {
-        userNumber.setValue(value);
+        userNumberInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setBirthDate(String day, String month, String year) {
-        birthDate.click();
+        birthDateInput.click();
         calendar.setDate(day, month, year);
 
         return this;
@@ -89,41 +87,39 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setHobbies(String value) {
-        hobbiesWrapper.$(byText(value)).click();
+        hobbiesInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setPicture(String value) {
-        uploadPicture.uploadFromClasspath(value);
+        uploadPictureInput.uploadFromClasspath(value);
 
         return this;
     }
 
     public RegistrationPage setCurrentAddress(String value) {
-        currentAddress.setValue(value);
+        currentAddressInput.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setState(String value) {
-        state.click();
-        stateCity.$(byText(value)).click();
+        stateInput.click();
+        stateCityInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setCity(String value) {
-        city.click();
-        stateCity.$(byText(value)).click();
+        cityInput.click();
+        stateCityInput.$(byText(value)).click();
 
         return this;
     }
 
-    public RegistrationPage submit() {
-        submit.click();
-
-        return this;
+    public void submit() {
+        submitButton.click();
     }
 
     public RegistrationPage checkModalAppears() {
@@ -133,7 +129,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkTableResult(String checkField, String value) {
-        table.$(byText(checkField)).parent().shouldHave(Condition.text(value));
+        tableField.$(byText(checkField)).parent().shouldHave(Condition.text(value));
 
         return this;
     }

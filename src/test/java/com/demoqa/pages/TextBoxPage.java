@@ -7,16 +7,17 @@ import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
 public class TextBoxPage {
-    SelenideElement
-            userName = $("#userName"),
-            userEmail = $("#userEmail"),
-            currentAddress = $("#currentAddress"),
-            permanentAddress = $("#permanentAddress"),
-            submit = $("#submit"),
-            outputName = $("#output #name"),
-            outputEmail = $("#output #email"),
-            outputCurrentAddress = $("#output #currentAddress"),
-            outputPermanentAddress = $("#output #permanentAddress");
+
+    private final SelenideElement
+            userNameInput = $("#userName"),
+            userEmailInput = $("#userEmail"),
+            currentAddressInput = $("#currentAddress"),
+            permanentAddressInput = $("#permanentAddress"),
+            submitButton = $("#submit"),
+            nameOutput = $("#output #name"),
+            emailOutput = $("#output #email"),
+            currentAddressOutput = $("#output #currentAddress"),
+            permanentAddressOutput = $("#output #permanentAddress");
 
     public TextBoxPage openPage() {
         open("/text-box");
@@ -25,65 +26,53 @@ public class TextBoxPage {
     }
 
     public TextBoxPage seUserName(String value) {
-        userName.setValue(value);
+        userNameInput.setValue(value);
 
         return this;
     }
 
     public TextBoxPage setUserEmail(String value) {
-        userEmail.setValue(value);
+        userEmailInput.setValue(value);
 
         return this;
     }
 
     public TextBoxPage setCurrentAddress(String value) {
-        currentAddress.setValue(value);
+        currentAddressInput.setValue(value);
 
         return this;
     }
 
     public TextBoxPage setPermanentAddress(String value) {
-        permanentAddress.setValue(value);
+        permanentAddressInput.setValue(value);
 
         return this;
     }
 
-    public TextBoxPage submit() {
-        submit.click();
-
-        return this;
+    public void submit() {
+        submitButton.click();
     }
 
-    public TextBoxPage checkName(String value) {
-        outputName.shouldHave(text(value));
-
-        return this;
+    public void checkName(String value) {
+        nameOutput.shouldHave(text(value));
     }
 
-    public TextBoxPage checkEmail(String value) {
-        outputEmail.shouldHave(text(value));
-
-        return this;
+    public void checkEmail(String value) {
+        emailOutput.shouldHave(text(value));
     }
 
-    public TextBoxPage checkCurrentAddress(String value) {
-        outputCurrentAddress.shouldHave(text(value));
-
-        return this;
+    public void checkCurrentAddress(String value) {
+        currentAddressOutput.shouldHave(text(value));
     }
 
-    public TextBoxPage checkPermanentAddress(String value) {
-        outputPermanentAddress.shouldHave(text(value));
-
-        return this;
+    public void checkPermanentAddress(String value) {
+        permanentAddressOutput.shouldHave(text(value));
     }
 
-    public TextBoxPage checkResult(String name, String email, String currentAddress, String permanentAddress) {
+    public void checkResult(String name, String email, String currentAddress, String permanentAddress) {
         checkName(name);
         checkEmail(email);
         checkCurrentAddress(currentAddress);
         checkPermanentAddress(permanentAddress);
-
-        return this;
     }
 }
