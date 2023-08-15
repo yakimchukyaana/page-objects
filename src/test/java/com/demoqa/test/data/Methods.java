@@ -1,25 +1,29 @@
-package com.demoqa.utils;
+package com.demoqa.test.data;
 
 
 import com.github.javafaker.Faker;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class TestDataMethods {
+public class Methods {
 
     public static int getRandomInt(int min, int max) {
+
         return ThreadLocalRandom.current().nextInt(min, max + 1);
     }
 
     public static String getRandomFirstName(Faker fakerEn) {
+
         return fakerEn.name().firstName();
     }
 
     public static String getRandomLastName(Faker fakerEn) {
+
         return fakerEn.name().lastName();
     }
 
     public static String getRandomUserEmail(Faker fakerEn) {
+
         return fakerEn.internet().emailAddress();
     }
 
@@ -30,11 +34,11 @@ public class TestDataMethods {
     }
 
     public static String getRandomUserNumber(Faker fakerEn) {
+
         return fakerEn.numerify("##########");
     }
 
     public static String getRandomDay() {
-        //return new Faker().random().nextInt(1,28).toString();
         int day = getRandomInt(1, 28);
 
         if (day < 10) {
@@ -47,6 +51,7 @@ public class TestDataMethods {
     public static String getRandomMonth() {
         String[] months = {"January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"};
+
         return new Faker().options().option(months);
     }
 
@@ -74,6 +79,7 @@ public class TestDataMethods {
     }
 
     public static String getRandomCurrentAddress(Faker fakerEn) {
+
         return fakerEn.address().fullAddress();
     }
 
@@ -83,7 +89,6 @@ public class TestDataMethods {
         return new Faker().options().option(states);
     }
 
-    //city
     public static String getRandomCity(String stateValue) {
         switch (stateValue) {
             case "NCR": {

@@ -14,7 +14,8 @@ public class TextBoxTests extends TestBase {
                 .setUserEmail("marywatson@gmail.com")
                 .setCurrentAddress("40 Lipton Court, Chase Side Sothgate, London, N14")
                 .setPermanentAddress("41 Lipton Court, Chase Side Sothgate, London, N15")
-                .submit()
+                .submit();
+        textBoxPage
                 .checkResult(
                 "Mary Watson",
                 "marywatson@gmail.com",
